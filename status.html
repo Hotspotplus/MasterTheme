@@ -1,0 +1,82 @@
+<html>
+<head>
+    <title>وضعیت کاربر</title>
+    $(if refresh-timeout)
+    <meta http-equiv="refresh" content="$(refresh-timeout-secs)">
+    $(endif)
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
+    <script src="./scripts/jquery.min.js"></script>
+    <script src="./scripts/basic.js"></script>
+    <link href="./css/bootstrap.css" rel="stylesheet">
+    <link href="./css/main.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+	<div class="row form-group">
+		<div class="col-sm-6 col-md-4 col-md-offset-4">
+			<br>
+            <img class="img-responsive center-block img-size"
+                 src="/img/logo.png" alt="Logo">
+			<br>
+			<h4 class="text-center">وضعیت کاربر</h4>
+            <form method="POST" id="logout">
+                <br>
+                <table class="table table-condensed tabula">
+                    <tr>
+                        <td>آی پی شما:</td>
+                        <td class="text-left">$(ip)</td>
+                    </tr>
+                    <tr>
+                        <td>حجم ورودی:</td>
+                        <td class="text-left" style="direction: ltr">$(bytes-in-nice)</td>
+                    </tr>
+                    <tr>
+                        <td>حجم خروجی:</td>
+                        <td class="text-left"  style="direction: ltr">$(bytes-out-nice)</td>
+                    </tr>
+                    $(if session-time-left)
+                        <tr>
+                            <td>زمان اتصال:</td>
+                            <td class="text-left">$(uptime)</td>
+                        </tr>
+                        <tr>
+                            <td>زمان مانده:</td>
+                            <td class="text-left">$(session-time-left)</td>
+                        </tr>
+                    $(else)
+                        <tr>
+                            <td>زمان اتصال:</td>
+                            <td class="text-left">$(uptime)</td>
+                        </tr>
+                    $(endif)
+                    $(if blocked == 'yes')
+                        <tr>
+                            <td>وضعیت:</td>
+                            <td class="text-left text-danger">
+                                <div>
+                                    <a href="$(link-advert)" target="hotspot_advert">advertisement</a> required
+                                </div>
+                            </td>
+                        </tr>
+                    $(elif refresh-timeout)
+                    <tr>
+                        <td>به روزرسانی صفحه:</td>
+                        <td class="text-left">$(refresh-timeout)</td>
+                    </tr>
+                    $(endif)
+                </table>
+                <br>
+                    <p class="text-center"><a href="http://www.google.com" data-toggle="tab">صفحه گوگل</a></p>
+                <br>
+                <div class="form-group">
+                    <input value="خروج" class="btn btn-block btn-danger" type="button" onclick="signOut('$(link-logout)')"/>
+                </div>
+            </form>
+		</div>
+	</div>
+</div>
+</body>
+</html>

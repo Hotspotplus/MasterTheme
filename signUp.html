@@ -1,0 +1,84 @@
+<html>
+<head>
+    <title>ورود به هات اسپات</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
+    <script src="./scripts/jquery.min.js"></script>
+    <script src="./scripts/basic.js"></script>
+    <script src="./scripts/dateConvert.js"></script>
+    <link href="./css/bootstrap.css" rel="stylesheet">
+    <link href="./css/main.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="row form-group">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <br>
+            <img class="img-responsive center-block img-size"
+                 src="/img/logo.png" alt="Logo">
+            <br>
+            <h4 class="text-center">فرم عضویت</h4>
+            <form method="POST" id="signUp">
+                <br>
+                <div class="form-group">
+                    <label for="mobile">موبایل</label>
+                    <input type="text" class="form-control" id="mobile" name="mobile" placeholder="">
+                </div>
+                <div class="form-group">
+                    <label for="username">‌نام کاربری</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="">
+                </div>
+                <div class="form-group">
+                    <label for="password">رمز عبور</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="">
+                </div>
+                <div class="form-group">
+                    <label for="email">آدرس ایمیل</label>
+                    <input type="text" class="form-control" id="email" name="email" placeholder="">
+                </div>
+                <div class="form-group">
+                    <label for="fullName">نام کامل</label>
+                    <input type="text" class="form-control" id="fullName" name="fullName" placeholder="">
+                </div>
+                <div class="form-group">
+                    <label for="age">سن</label>
+                    <input type="text" class="form-control" id="age" name="age" placeholder="">
+                </div>
+                <div class="form-group">
+                    <label for="nationalCode">کدملی</label>
+                    <input type="text" class="form-control" id="nationalCode" name="nationalCode" placeholder="">
+                </div>
+
+                <div class="row form-group">
+                    <label class="col-xs-12">تاریخ تولد</label>
+                    <div class="col-xs-12 form-inline">
+                        <input type="text" class="form-control text-center col-xs-4" style="width:33%" id="birthYear"
+                               name="birthYear" placeholder="سال">
+                        <input type="text" class="form-control text-center col-xs-4" style="width:33%" id="birthMonth"
+                               name="birthMonth" placeholder="ماه">
+                        <input type="text" class="form-control text-center col-xs-4" style="width:33%" id="birthDay"
+                               name="birthDay" placeholder="روز">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>جنسیت</label>
+                    <div class="form-inline">
+                        <label class="radio-inline"><input type="radio" id="male" value="male" name="gender"><p style="padding-right:15px">مرد</p></label>
+                        <label class="radio-inline"><input type="radio" id="female" value="female" name="gender"><p style="padding-right:15px">زن</p></label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input value="عضویت" class="btn btn-block btn-primary" type="botton" onclick="signUp ('$(hostname)', '$(mac)')"/>
+                </div>
+            </form>
+            <br>
+            <p class="text-center"><a href="login.html" data-toggle="tab">انصراف</a></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>ورود به هات اسپات</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
+    <script src="./scripts/jquery.min.js"></script>
+    <script src="./scripts/basic.js"></script>
+    <link href="./css/bootstrap.css" rel="stylesheet">
+    <link href="./css/main.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="row form-group">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <br>
+            <img class="img-responsive center-block img-size"
+                 src="/img/logo.png" alt="Logo">
+            <br>
+            <h4 class="text-center">ارسال کد تایید</h4>
+            <form method="POST" id="verifyCode">
+                <br>
+                <div class="form-group">
+                    <label for="code">کد تایید</label>
+                    <input type="text" class="form-control text-center" id="code" name="code" placeholder="">
+                </div>
+                <div class="form-group">
+                    <input value="ارسال" class="btn btn-block btn-primary" type="button" onclick="verify( '$(hostname)', '$(hostname)' )"/>
+                </div>
+            </form>
+            <br>
+            <p class="text-center"><a href="login.html" data-toggle="tab">بازگشت</a></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

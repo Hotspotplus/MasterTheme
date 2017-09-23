@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'Yekan';
+    src:        url('./fonts/Far_Yekan.eot');
+    src: local('☺'),
+    url('./fonts/Far_Yekan.woff') format('woff'),
+    url('./fonts/Far_Yekan.ttf') format('truetype'),
+    url('./fonts/Far_Yekan.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: Yekan, serif !important;
+    font-weight: 300;
+    direction: rtl;
+    font-size: 14px !important;
+    line-height: 22px !important;
+    margin: 0;
+}
+
+.img-size {
+    width: 40%;
+}
