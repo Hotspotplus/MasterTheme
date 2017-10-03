@@ -4,7 +4,7 @@
 
 # Project Title
 
-<div style="direction:rtl">تنظیمات</div>
+# تنظیمات {dir=rtl}
 
 ## Getting Started
 
