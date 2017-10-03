@@ -2,10 +2,7 @@
  * Created by rezanazari on 9/17/17.
  */
 window.hotspot = window.hotspot || {};
-window.hotspot.data = {
-	nasId:      "59bcf176e81aeb001e440df6",
-	routerType: "mikrotik"
-};
+window.hotspot.data.nasId =  "59bcf176e81aeb001e440df6";
 
 var apiUrl = "http://pintime.io/api/"
 window.hotspot.urls = {
