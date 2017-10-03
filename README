@@ -2,25 +2,3 @@
 1- Connect to mikrotik
 2- Upload all files in this folder to mikrotik
 
-<h3>تنظیمات </h3>
-۱ - فایل basic.js که در پوشه script قرار دارد را باز کنید
-۲ - در ابتدای فایل window.hotspot.data را بیابید
-Window.hotspot.data = {
-	“nasId”: 		“59bcf176e81aeb001e440df6”,
-	“routerType”:   “mikrotik”
-}
-
-۴ - مقدار nasId را به nasId خود تغییر دهید
-۵ - مقدار window.hotspot.data پس از تغییر
-
-Window.hotspot.data = {
-	“nasId”: 		“your nasId”,
-	“routerType”:	“mikrotik”
-}
-۶ - فایل را سیو نموده و پوشه را در میکروتیک کپی کنید
-
-<h3>یافتن nasId</h3>
-۱ - وارد پنل کاربری خود شوید
-۲ - از منوی سمت راست "روترها"  را انتخاب کنید
-۳ - در صفحه فهرست روترها، ویرایش را انتخاب کنید
-۴ - در صفحه ویرایش روتر، مقدار" شناسه روتر" را کپی کنید
