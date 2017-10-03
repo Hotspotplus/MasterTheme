@@ -4,9 +4,7 @@
 
 # Project Title
 
-<div style="direction:rtl">
-تنظیمات
-</div>
+<div style="direction:rtl">تنظیمات</div>
 
 ## Getting Started
 
