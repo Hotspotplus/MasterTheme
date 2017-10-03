@@ -3,7 +3,6 @@
  */
 window.hotspot = window.hotspot || {};
 window.hotspot.data = {
-	businessId: "597ab067dfd00b001f7959e0",
 	nasId:      "59bcf176e81aeb001e440df6",
 	routerType: "mikrotik"
 };
@@ -13,7 +12,8 @@ window.hotspot.urls = {
 	signIn:      apiUrl + "Members/signIn",
 	signUp:      apiUrl + "Members/createHotSpotMember",
 	recoverPass: apiUrl + "Members/recoverHotspotUser",
-	verify:      apiUrl + "Members/verifyHotSpot"
+	verify:      apiUrl + "Members/verifyHotSpot",
+	routerInfo:  apiUrl + "Nas/loadRouterInfo"
 };
 
 window.hotspot.message = {
@@ -33,9 +33,35 @@ window.hotspot.message = {
 	"code602":                 "زمان استفاده ی شما از اینترنت به اتمام رسیده است",
 	"code603":                 "حجم مصرفی شما به اتمام رسیده است",
 	"code605":                 "مدت بسته ی اینترنت شما به اتمام رسیده است",
-	"code606":                 "یک نفر دیگر با این نام کاربری در حال استفاده از اینترنت است، دقایقی دیگر تلاش کنید"
+	"code606":                 "یک نفر دیگر با این نام کاربری در حال استفاده از اینترنت است، دقایقی دیگر تلاش کنید",
+	"nasNotFound":             "روتری یافت نشد",
+	"loadRouterInfoFailure":   "خطا در دریافت اطلاعات روتر"
 
 };
+//load router info and set businessId
+$.ajax ( {
+	type:        "POST",
+	url:         window.hotspot.urls.routerInfo,
+	data:        JSON.stringify ( { nasId: window.hotspot.data.nasId } ),
+	success:     function ( result ) {
+		if ( !result.data ) {
+			alert ( window.hotspot.message.nasNotFound );
+			return;
+		}
+		var nas = result.data;
+		window.hotspot.data.routerType = nas.accessPointType;
+		window.hotspot.data.businessId = nas.businessId;
+
+	},
+	error:       function ( error ) {
+		if ( error ) {
+			alert ( window.hotspot.message.loadRouterInfoFailure );
+			return;
+		}
+	},
+	dataType:    "json",
+	contentType: "application/json"
+} );
 
 //login to hotSpot
 function signIn ( hostname ) {
