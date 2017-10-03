@@ -4,7 +4,7 @@
 window.hotspot = window.hotspot || {};
 window.hotspot.data.nasId =  "59bcf176e81aeb001e440df6";
 
-var apiUrl = "http://pintime.io/api/"
+var apiUrl = "http://api.hotspotplus.ir/api/"
 window.hotspot.urls = {
 	signIn:      apiUrl + "Members/signIn",
 	signUp:      apiUrl + "Members/createHotSpotMember",
