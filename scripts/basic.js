@@ -51,7 +51,6 @@ $.ajax ( {
 		var nas = result.data;
 		window.hotspot.data.routerType = nas.accessPointType;
 		window.hotspot.data.businessId = nas.businessId;
-
 	},
 	error:       function ( error ) {
 		if ( error ) {
@@ -70,8 +69,8 @@ function signIn ( hostname ) {
 	options.businessId = window.hotspot.data.businessId;
 	options.nasId = window.hotspot.data.nasId;
 	options.routerType = window.hotspot.data.routerType;
-	options.username = englishNumber( form.username );
-	options.password = englishNumber( form.password );
+	options.username = englishNumber ( form.username );
+	options.password = englishNumber ( form.password );
 	// request for login to api
 	$.ajax ( {
 		type:        "POST",
@@ -89,7 +88,7 @@ function signIn ( hostname ) {
 						'username': options.username,
 						'password': options.password
 					},
-					success:     function ( ) {
+					success:     function () {
 						location.href = statusUrl;
 					},
 					error:       function ( error ) {
@@ -124,7 +123,7 @@ function signIn ( hostname ) {
 						alert ( window.hotspot.message.code606 );
 						break;
 					default:
-						var message = result.message['reply:Reply-Message'];
+						var message = result.message[ 'reply:Reply-Message' ];
 						alert ( message );
 						break;
 				}
@@ -185,11 +184,11 @@ function signUp ( hostname, mac ) {
 };
 
 //logout of hotSpot
-function signOut( logoutUrl ){
-	$.ajax({
+function signOut ( logoutUrl ) {
+	$.ajax ( {
 		type:        "POST",
 		url:         logoutUrl,
-		success:     function ( ) {
+		success:     function () {
 			location.href = logoutUrl;
 		},
 		error:       function ( error ) {
@@ -204,14 +203,14 @@ function signOut( logoutUrl ){
 //verification of user signUp
 function verify ( hostname, mac ) {
 	var code = $ ( '#code' ).val ();
-	var memberId = window.location.href.slice(window.location.href.indexOf('?') + 1).split('=')[1];
+	var memberId = window.location.href.slice ( window.location.href.indexOf ( '?' ) + 1 ).split ( '=' )[ 1 ];
 	var options = {
-		memberId: memberId,
-		id:       window.hotspot.data.businessId,
+		memberId:         memberId,
+		id:               window.hotspot.data.businessId,
 		nasId:            window.hotspot.data.nasId,
 		host:             hostname,
 		mac:              mac,
-		verificationCode: englishNumber( code )
+		verificationCode: englishNumber ( code )
 	}
 	$.ajax ( {
 		type:        "POST",
@@ -224,7 +223,7 @@ function verify ( hostname, mac ) {
 		},
 		error:       function ( error ) {
 			var err = error.responseJSON.error;
-			if (err.statusCode == 500 && err.message == 'invalid code'){
+			if ( err.statusCode == 500 && err.message == 'invalid code' ) {
 				alert ( window.hotspot.message.invalidCode );
 			} else {
 				alert ( window.hotspot.message.generalError );
@@ -239,7 +238,7 @@ function verify ( hostname, mac ) {
 function recoverPass ( hostname, mac ) {
 	var userMobile = $ ( '#username' ).val ();
 	var options = {
-		usernameOrMobile: englishNumber( userMobile ),
+		usernameOrMobile: englishNumber ( userMobile ),
 		businessId:       window.hotspot.data.businessId,
 		nasId:            window.hotspot.data.nasId,
 		host:             hostname,
@@ -256,7 +255,7 @@ function recoverPass ( hostname, mac ) {
 			var errorMessage = window.hotspot.message.generalError;
 			if ( error.responseJSON.error.message ) {
 				var message = error.responseJSON.error.message;
-				if ( message.trim() ==  'member not found' ) {
+				if ( message.trim () == 'member not found' ) {
 					errorMessage = window.hotspot.message.userNotFound;
 				}
 			}
@@ -270,7 +269,7 @@ function recoverPass ( hostname, mac ) {
 function setOrPush ( target, val ) {
 	var result = val;
 	if ( target ) {
-		result = [target];
+		result = [ target ];
 		result.push ( val );
 	}
 	return result;
@@ -280,9 +279,9 @@ function getFormResults ( formElements ) {
 	var formParams = {};
 	var elem = null;
 	for ( var i = 0; i < formElements.length; i++ ) {
-		elem = formElements[i];
-		if (elem.value != ""){
-			formParams[elem.name] = setOrPush ( formParams[elem.name], englishNumber(elem.value) );
+		elem = formElements[ i ];
+		if ( elem.value != "" ) {
+			formParams[ elem.name ] = setOrPush ( formParams[ elem.name ], englishNumber ( elem.value ) );
 		}
 	}
 	return formParams;
@@ -291,7 +290,7 @@ function getFormResults ( formElements ) {
 function englishNumber ( value ) {
 	value = String ( value );
 	if ( !value ) return '';
-	var s = value.toString();
-	s = s.replace( /۱/g, "1" ).replace( /۲/g, "2" ).replace( /۳/g, "3" ).replace( /۴/g, "4" ).replace( /۵/g, "5" ).replace( /۶/g, "6" ).replace( /۷/g, "7" ).replace( /۸/g, "8" ).replace( /۹/g, "9" ).replace( /۰/g, "0" ).replace( /١/g, "1" ).replace( /٢/g, "2" ).replace( /٣/g, "3" ).replace( /٤/g, "4" ).replace( /٥/g, "5" ).replace( /٦/g, "6" ).replace( /٧/g, "7" ).replace( /٨/g, "8" ).replace( /٩/g, "9" ).replace( /٠/g, "0" );
+	var s = value.toString ();
+	s = s.replace ( /۱/g, "1" ).replace ( /۲/g, "2" ).replace ( /۳/g, "3" ).replace ( /۴/g, "4" ).replace ( /۵/g, "5" ).replace ( /۶/g, "6" ).replace ( /۷/g, "7" ).replace ( /۸/g, "8" ).replace ( /۹/g, "9" ).replace ( /۰/g, "0" ).replace ( /١/g, "1" ).replace ( /٢/g, "2" ).replace ( /٣/g, "3" ).replace ( /٤/g, "4" ).replace ( /٥/g, "5" ).replace ( /٦/g, "6" ).replace ( /٧/g, "7" ).replace ( /٨/g, "8" ).replace ( /٩/g, "9" ).replace ( /٠/g, "0" );
 	return s;
 };
